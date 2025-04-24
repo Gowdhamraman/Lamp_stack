@@ -1,0 +1,24 @@
+- name: Install Apache
+  yum: name=httpd state=present
+
+- name: Enable and start Apache
+  service: name=httpd state=started enabled=true
+
+- name: Install firewalld
+  yum: name=firewalld state=present
+
+- name: Open firewall ports
+  firewalld:
+    port: "{{ item }}"
+    permanent: true
+    state: enabled
+    immediate: yes
+  loop:
+    - 80/tcp
+    - 443/tcp
+
+- name: Deploy virtualhost config
+  template:
+    src: vhost.conf.j2
+    dest: /etc/httpd/conf.d/vhost.conf
+  notify: Restart Apache

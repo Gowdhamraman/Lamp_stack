@@ -1,0 +1,13 @@
+- name: Install PHP and modules
+  yum:
+    name:
+      - php
+      - php-mysqlnd
+      - php-cli
+      - php-common
+    state: present
+
+- name: Restart Apache
+  service:
+    name: httpd
+    state: restarted

@@ -1,0 +1,14 @@
+- name: Install LAMP stack
+  hosts: web
+  become: true
+  roles:
+    - apache
+    - php
+    - mysql_client
+    - letsencrypt
+
+- name: Install MySQL server
+  hosts: db
+  become: true
+  roles:
+    - mysql

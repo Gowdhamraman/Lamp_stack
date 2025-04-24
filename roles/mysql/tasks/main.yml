@@ -1,0 +1,15 @@
+- name: Install MySQL
+  yum: name=mariadb-server state=present
+
+- name: Enable and start MySQL
+  service:
+    name: mariadb
+    state: started
+    enabled: true
+
+- name: Set root password
+  mysql_user:
+    name: root
+    password: "{{ mysql_root_password }}"
+    host_all: true
+    login_unix_socket: /var/lib/mysql/mysql.sock

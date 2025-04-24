@@ -1,0 +1,4 @@
+- name: Install MySQL client
+  yum:
+    name: mariadb
+    state: present

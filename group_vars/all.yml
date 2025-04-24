@@ -1,0 +1,4 @@
+mysql_root_password: StrongRootPass123!
+server_name: www.example.com
+server_admin: webmaster@example.com
+document_root: /var/www/html
