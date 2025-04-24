@@ -7,7 +7,7 @@ Deploy a complete **LAMP (Linux, Apache, MySQL, PHP)** stack using **Ansible** a
 ---
 
 ## 📁 Project Structure
-
+```
 lamp-cluster/
 ├── group_vars
 │   └── all.yml
@@ -31,7 +31,7 @@ lamp-cluster/
     └── php
         └── tasks
             └── main.yml
-
+```
 ---
 
 ## ⚙️ Prerequisites
