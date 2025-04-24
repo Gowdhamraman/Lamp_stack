@@ -8,8 +8,29 @@ Deploy a complete **LAMP (Linux, Apache, MySQL, PHP)** stack using **Ansible** a
 
 ## 📁 Project Structure
 
-lamp-cluster/ ├── inventory.ini # Hosts definition (web, db) ├── playbook.yml # Main deployment playbook ├── group_vars/ │ └── all.yml # Global variables └── roles/ ├── apache/ # Apache installation and vhost ├── php/ # PHP + modules ├── mysql/ # MySQL server ├── mysql_client/ # MySQL client on web nodes └── letsencrypt/ # SSL using Let's Encrypt
-
+lamp-cluster/
+├── group_vars
+│   └── all.yml
+├── inventory.ini
+├── playbook.yml
+└── roles
+    ├── apache
+    │   ├── tasks
+    │   │   └── main.yml
+    │   └── templates
+    │       └── vhost.conf.j2
+    ├── letsencrypt
+    │   └── tasks
+    │       └── main.yml
+    ├── mysql
+    │   └── tasks
+    │       └── main.yml
+    ├── mysql_client
+    │   └── tasks
+    │       └── main.yml
+    └── php
+        └── tasks
+            └── main.yml
 
 ---
 
